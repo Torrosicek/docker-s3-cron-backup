@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "creating archive"
-tar -zcvfh /tmp/$BACKUP_NAME-`date "+%Y-%m-%d_%H-%M-%S"`.tar.gz /data
+tar -zcvhf /tmp/$BACKUP_NAME-`date "+%Y-%m-%d_%H-%M-%S"`.tar.gz /data
 echo "uploading archive to S3"
 aws s3 cp /tmp/*.tar.gz $S3_BUCKET_URL
 echo "removing local archive"
